@@ -6,10 +6,10 @@ use IO::Zlib;
 ##############
 # USER INPUT #
 ##############
-$indices = "./RTK4_library_reference/indices.txt";
+$indices = "./library_reference/indices.txt";
 $sequencing_files = "./sequencing_runs";
 $process_number_max = "3";
-$output_dir = "./counts_set9_RTK4/";
+$output_dir = "./example_counts/";
 ##############
 
 # Create output directory
@@ -79,13 +79,13 @@ for my $value (values %id2seq) {
 }
 
 keys %id2seq;
-for my $gene (sort keys %id2seq)
+for my $phage (sort keys %id2seq)
 	{
-	my $value = $id2seq{$gene};
+	my $value = $id2seq{$phage};
 	my $count = $NGS_seq{$value}-1;
 
-#	print "$gene\t$count\n";
-	print out1 "$gene\t$count\n";
+#	print "$phage\t$count\n";
+	print out1 "$phage\t$count\n";
 	}
 
 ###
