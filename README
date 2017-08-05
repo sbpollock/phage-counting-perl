@@ -38,7 +38,7 @@ Your indices are now prepared, and you're ready to move on to actually running t
 
 10. Navigate terminal to "Example" and type "./1-count-parallel.pl". You should see a message that the file is processing and your output folder has been created. The example file should take no time at all. With more indices, larger sequencing files, and a large number of sequencing files, this can take several minutes. Each counts file will be named the same as the ".fastq.gz" sequencing file, but with ".counts" appended to the end.
 
-11. Move the file "2-format-counts.pl" into the "example_counts" folder. Navigate Terminal to the same folder and type "./2-format-counts.pl". This will output several files. Ignore the genes.txt file. The counts_table.txt file can be opened in Excel to provide phage clones (gene) vs. samples in spreadsheet format.
+11. Move the file "2-format-counts.pl" into the "example_counts" folder. Navigate Terminal to the same folder and type "./2-format-counts.pl". This will output several files. Ignore the genes.txt file. The counts_table.txt file can be opened in Excel to provide phage clones vs. samples in spreadsheet format.
 
 In this case we only have one sequencing file so there's only one column of data. More sequencing files will get added as additional columns.
 
