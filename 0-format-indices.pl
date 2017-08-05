@@ -8,7 +8,7 @@
 # Insert post H3 seqeunce here:
 my $postH3;
 $postH3 = 'GACTACTGGGGTCAAGGAACCCTGGTCAAGATCGGAAGAGCACACGTCTG';
-my $index_file = 'set7_library.txt';
+my $index_file = 'LibRef.txt';
 #
 # 
 #
