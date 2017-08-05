@@ -12,35 +12,33 @@ II. Arrange your files and folders for the main script and run.
 
 Most trouble with this step comes from the smallest mistakes in folder names, file names, or script changes. Be very careful when following the instruction and naming things.
 
-1. Make a folder for processing your data called, for example, "Processing_1". Then within Processing_1, create a folder called "library_reference" and a folder called "sequencing_runs".
+1. Make a folder for processing your data called, for example, "Example" (we performed this whole procedure within the main folder for your viewing pleasure). Then within Example, create a folder called "library_reference" and a folder called "sequencing_runs".
 
-2. Open an excel document and add the name of your phage in column 1 and the H3 sequence of the phage in column 2 (no headers). Make sure there is no empty space in either column (this can happen when pasting from online spreadsheets especially):
+2. Open an excel document and add the name of your Fab-phage clone in column 1 and the CDR H3 sequence of the Fab in column 2 (no headers). Make sure there is no empty space in either column (this can happen when pasting from online spreadsheets especially). Save as, for example, "LibRef.xls" into the library_reference folder.
 
-Save the excel file in "windows formatted text" format. You may get a warning that some formatting might be left out. Just hit continue. It should look like this if opened in a text editor:
+3. Save the excel file in "windows formatted text" format ("LibRef.txt") into the library_reference folder. You may get a warning that some formatting might be left out. Just hit continue.
 
+4. Move the file "0-format-indices.pl". Then, navigate to the folder using Terminal, or similar program.
 
-Move the exported file (Data_Step1_excel_export) to the library_reference folder, along with formatting script "0-format-indices.pl". Then, navigate to the folder using Terminal, or similar program.
+5. Type "vi 0-format-indices.pl" to open up the formatting perl script. Press "i", navigate to line 11 using the arrow keys, and replace the file name there with your file name (in this example case, LibRef.txt).
 
-Type "vi 0-format-indices.pl" to open up the formatting perl script. Press "i", navigate to line 11 using the arrow keys, and replace the file name there with your file name (in this example case, Data_Step1_excel_export.txt).
-
-Press "Esc + : + w + q + Enter" to save the changes. Then, in Terminal, type "./0-format-indices.pl" to run the script. You should see all results get printed in Terminal. A file called "indices.txt" will also appear in the "library_reference" folder and should be formatted like so:
+6. Press "Esc + : + w + q + Enter" to save the changes. Then, in Terminal, type "./0-format-indices.pl" to run the script. You should see all results get printed in Terminal. A file called "indices.txt" will also appear in the "library_reference" folder.
 
 Your indices are now prepared, and you're ready to move on to actually running the counting script.
 
-Arrange your files and folders for the main script and run
+######################################################################
+##### Arrange your files and folders for the main script and run #####
+######################################################################
 
-Move the file "1-count-parallel.pl" into the "Processing_1" folder. Navigate to the folder in terminal, then open up the script by typing "vi 1-count-parallel.pl"
+7. Move the file "1-count-parallel.pl" into the "Example" folder. Navigate to the folder in terminal, then open up the script by typing "vi 1-count-parallel.pl"
 
-Change the location and name of the indices, sequencing files, processors, and output directory to match your preferences (lines 9-12). Here, we're going to make the output directory "test_counts". Make sure EVERYTHING in "1-count-parallel.pl" matches all file names. Then press "Esc + : + w + q + Enter" to save the changes.
+8. Change the location and name of the indices, sequencing files, processors, and output directory to match your preferences (lines 9-12) as above (press "i"). Here, we're going to make the output directory "example_counts". Make sure EVERYTHING in "1-count-parallel.pl" matches all file names. Then press "Esc + : + w + q + Enter" to save the changes.
 
-Move your sequencing files (in .fastq.gz format) to Processing_1>sequencing_runs. Our sample sequencing file is "SP05-502...". Here's what everything should look like in the folder before you run:
+9. Move your sequencing files (in .fastq.gz format) to Example>sequencing_runs. Our sample sequencing file is "example.fastq.gz".
 
-Navigate terminal to Processing_1 and type "./1-count-parallel.pl". You should see a message that the file is processing and your output folder has been created. The example file at 150MB should take just a few seconds. With more indices and larger sequencing files this can take several minutes.
+10. Navigate terminal to "Example" and type "./1-count-parallel.pl". You should see a message that the file is processing and your output folder has been created. The example file should take no time at all. With more indices, larger sequencing files, and a large number of sequencing files, this can take several minutes. Each counts file will be named the same as the ".fastq.gz" sequencing file, but with ".counts" appended to the end.
 
-Each counts file will be named the same as the ".fastq.gz" sequencing file, but with ".counts" appended to the end. Each counts file should look like this:
+11. Move the file "2-format-counts.pl" into the "example_counts" folder. Navigate Terminal to the same folder and type "./2-format-counts.pl". This will output several files. Ignore the genes.txt file. The counts_table.txt file can be opened in Excel to provide phage clones (gene) vs. samples in spreadsheet format.
 
-Move the script "2-format-counts.pl" into the "test_counts" folder. Navigate Terminal to the same folder and type "./2-format-counts.pl". This will output several files. 
-Ignore the genes.txt file. The counts_table.txt file can be opened in Excel to provide antigens vs. samples in spreadsheet format:
-
-In this case we only have one sample so there's only one column of data. How to work up this data to give something that makes sense is explained in supplementary spreadsheet 1. 
+In this case we only have one sequencing file so there's only one column of data. More sequencing files will get added as additional columns.
 
