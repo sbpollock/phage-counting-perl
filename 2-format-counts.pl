@@ -9,7 +9,7 @@ open (out1, ">counts_table.txt") || die "Could not open input file";
 # Grab all of the .counts files
 @counts_files = glob ("*.counts");
 # Create a genes.txt file containing the gene names
-system("awk '{print \$1}' $counts_files[0] > genes.txt");
+system("awk '{print \$1}' $counts_files[0] > phage.txt");
 
 # For each .counts file, create a .counts.1 file that contains only the counts
 foreach (@counts_files)
@@ -23,8 +23,8 @@ $scal_files = join(" ", @counts_1_files);
 print "$scal_files\n";
 
 # Format and print header to match wells
-print "Gene\t";
-print out1 "Gene\t";
+print "Phage\t";
+print out1 "Phage\t";
 foreach (@counts_files)
         {
 	chomp;
@@ -49,8 +49,8 @@ print "\n";
 print out1 "\n";
 
 # Paste the gene list and the data
-system("paste genes.txt $scal_files");
-system("paste genes.txt $scal_files >> counts_table.txt");
+system("paste phage.txt $scal_files");
+system("paste phage.txt $scal_files >> counts_table.txt");
 
 close (out1);
 
