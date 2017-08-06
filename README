@@ -2,6 +2,8 @@
 ##### Overview #####
 ####################
 
+All three scripts were written entirely by Olivier Julien in the Wells lab at UCSF in 2016.
+
 To analyze your PhaNGS data you will need to...
 I. Write out the H3 sequences of the phage clones you're looking for, then append sufficient post-H3 sequence or trim your H3 sequence to make a 35bp string of nucleotides. This is your "reference library".
 II. Arrange your files and folders for the main script and run.
